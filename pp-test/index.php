@@ -44,7 +44,7 @@ include_once 'db_connection.php';
             $count = 0;
             while ($row = mysql_fetch_array($result)) {
                 $count++;
-                echo "<div id='" . $row['img_name'] . "' class='item_box'><img src='img/" . $row['img_name'] . ".jpg' /></div>";
+                echo "<div id='" . $row['img_name'] . "' class='item_box'><img src='" . $row['src'] . "' /></div>";
             }
             ?>
 

@@ -39,7 +39,7 @@ if (isset($_POST['action']) && $_POST['action'] == 'load_gallery') {
 
         $images = '';
         while ($row = mysql_fetch_array($result)) {
-            $images .= $row['img_name'] . "-";
+            $images .= $row['src'] . "-";
         }
 
 
