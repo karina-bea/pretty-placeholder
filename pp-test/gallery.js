@@ -49,7 +49,8 @@ $(document).ready(function(){
             action: 'load_gallery',
             gallery_id: $(this).attr("id")
         };
-        $.ajax({
+        if (data.gallery_id != "new_gallery"){
+            $.ajax({
             type: "POST",
             url: "ajax.php",
             data:data,
@@ -58,12 +59,17 @@ $(document).ready(function(){
                 gallery_items = gallery_items.split("-");
                 $("#group_items_panel").html('');
                 for(x=0;x<gallery_items.length;x++){
-                    $("#group_items_panel").append("<div id='"+gallery_items[x]+ "' class='item_box'><img src='img/"+gallery_items[x]+".jpg' /></div>");
+                    $("#group_items_panel").append("<div id='"+gallery_items[x]+ "' class='item_box'><img src='"+gallery_items[x]+"' /></div>");
                 }
                 $('.tick_image').remove();
                 $('#group_name').val('');
             }
-        });
+        });   
+        } else {
+            $("#group_items_panel").html("");
+            $("#group_items_panel").append("<input id=\"usernameInput\" type=\"text\"><input type=\"button\" value=\"Search\" onClick=\"getUserInformation()\">")
+        }
+        
     });
 
 });
@@ -78,7 +84,7 @@ var group_elements = function(){
     }else{
         var selected_ids = '';
         $(".tick_image").each(function() {
-            selected_ids += $(this).parent().attr("id")+"-";
+            selected_ids += $(this).siblings("img").attr("src")+"-";
         });
 
         var data = {

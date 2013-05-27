@@ -36,13 +36,13 @@ include_once 'db_connection.php';
              tags: theName,
              tagmode: "any",
              format: "json"
-           })
-        
-        
-           .done(function( data ) {
+           }).done(function( data ) {
              $.each( data.items, function( i, item ) {
-               $( "<img/>" ).attr( "src", item.media.m ).appendTo( "#images" );
-               if ( i === 3 ) {
+                console.log(data);
+
+                $("#group_items_panel").append("<div id='"+i+ "' class='item_box'><img src='"+item.media.m+"' /></div>");
+
+               if ( i === 9 ) {
                  return false;
                 }
              });
@@ -54,16 +54,7 @@ include_once 'db_connection.php';
 
     </head>
     <div id="Header">
-      Tags:
-    </div>
-    
-    <br><br>
-    
-    <input id="usernameInput" type="text">
-    <input type="button" value="Search" onClick="getUserInformation()">
-    
-    <br>  
-    
+
     <div id="images"></div>
     
     <div id='group_container'>
@@ -98,8 +89,10 @@ include_once 'db_connection.php';
         </div>
         <div id="group_list">
             <div id='group_list_header'>Group List</div>
+            
+            <div class='group_item act' id='new_gallery' >New</div>
+            
 
-            <div class='group_item act' id='all_gallery' >All</div>
 
             <?php
             $result = mysql_query("select * from gallery_groups");
