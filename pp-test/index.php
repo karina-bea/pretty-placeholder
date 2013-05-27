@@ -17,9 +17,55 @@ include_once 'db_connection.php';
 
         <script src="gallery.js" type="text/javascript"></script>
         <link rel="stylesheet" href="gallery.css">
+        
+        <script>
+         function getUserInformation ()
+        {
+           var nameElement = document.getElementById("usernameInput");
+           theName = nameElement.value;
+        
+           //writes in headr box
+           $("#Header").append(theName + " ");
+        
+           //assign your api key equal to a variable
+           var apiKey = '4ef2fe2affcdd6e13218f5ddd0e2500d';
+        
+           var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        
+           $.getJSON( flickerAPI, {
+             tags: theName,
+             tagmode: "any",
+             format: "json"
+           })
+        
+        
+           .done(function( data ) {
+             $.each( data.items, function( i, item ) {
+               $( "<img/>" ).attr( "src", item.media.m ).appendTo( "#images" );
+               if ( i === 3 ) {
+                 return false;
+                }
+             });
+           });
+        
+        }
+        </script>
 
 
     </head>
+    <div id="Header">
+      Tags:
+    </div>
+    
+    <br><br>
+    
+    <input id="usernameInput" type="text">
+    <input type="button" value="Search" onClick="getUserInformation()">
+    
+    <br>  
+    
+    <div id="images"></div>
+    
     <div id='group_container'>
 
         <div id='group_panel'>
