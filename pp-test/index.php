@@ -75,7 +75,7 @@ include_once 'db_connection.php';
 
             <?php
             
-            $result = mysql_query("select * from gallery_items");
+            $result = mysql_query("select * from gallery_items LIMIT 2");
 
 
             $count = 0;
@@ -91,7 +91,7 @@ include_once 'db_connection.php';
             <div id='group_list_header'>Group List</div>
             
             <div class='group_item act' id='new_gallery' >New</div>
-            
+            <div class='group_item' id='all_gallery' >All</div>
 
 
             <?php
