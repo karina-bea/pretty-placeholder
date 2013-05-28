@@ -75,7 +75,7 @@ include_once 'db_connection.php';
 
             <?php
             
-            $result = mysql_query("select * from gallery_items LIMIT 2");
+            $result = mysql_query("select * from gallery_groups LIMIT 1");
 
 
             $count = 0;
@@ -101,6 +101,7 @@ include_once 'db_connection.php';
                 echo "<div class='group_item' id='" . $row['id'] . "' >" . $row['group_name'] . "</div>";
             }
             ?>
+            
         </div>
         <div style='float: left;margin: 10px 0;text-align: center;width: 315px;'>
             <input type='button' onclick='delete_group()' value='Delete Group' />

@@ -1,6 +1,11 @@
 body{
     font-size:12px !important;
 }
+
+.group_list.item_box .tick_image{
+    display:none;
+}
+
 #group_items_panel{
     width:725px;
     min-height:500px;
