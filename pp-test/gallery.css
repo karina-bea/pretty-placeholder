@@ -1,6 +1,20 @@
 body{
     font-size:12px !important;
 }
+
+.item_wrapper{
+  width:180px;
+  float:left;
+}
+.item_wrapper input{
+  width:163px;
+  margin-left:8px;
+}
+
+.group_list.item_box .tick_image{
+    display:none;
+}
+
 #group_items_panel{
     width:725px;
     min-height:500px;

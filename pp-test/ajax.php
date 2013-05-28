@@ -33,17 +33,19 @@ if (isset($_POST['action']) && $_POST['action'] == 'load_gallery') {
 
         echo $gallery->group_images;
     } else {
-        $sql = "select * from gallery_items ";
+        $sql = "select * from gallery_groups ";
 
         $result = mysql_query($sql);
 
-        $images = '';
+        $tags = array();
+        
         while ($row = mysql_fetch_array($result)) {
-            $images .= $row['src'] . "-";
+            $data = array('ids' => $row['id'], 'tags' => $row['group_name']);
+            array_push($tags, $data);
         }
 
-
-        echo substr($images, 0, -1);
+        $json = array("data" => $tags);
+        echo json_encode($json);
     }
 }
 

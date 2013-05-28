@@ -36,13 +36,13 @@ include_once 'db_connection.php';
              tags: theName,
              tagmode: "any",
              format: "json"
-           })
-        
-        
-           .done(function( data ) {
+           }).done(function( data ) {
              $.each( data.items, function( i, item ) {
-               $( "<img/>" ).attr( "src", item.media.m ).appendTo( "#images" );
-               if ( i === 3 ) {
+                console.log(data);
+
+                $("#group_items_panel").append("<div id='"+i+ "' class='item_box'><img src='"+item.media.m+"' /></div>");
+
+               if ( i === 9 ) {
                  return false;
                 }
              });
@@ -54,16 +54,7 @@ include_once 'db_connection.php';
 
     </head>
     <div id="Header">
-      Tags:
-    </div>
-    
-    <br><br>
-    
-    <input id="usernameInput" type="text">
-    <input type="button" value="Search" onClick="getUserInformation()">
-    
-    <br>  
-    
+
     <div id="images"></div>
     
     <div id='group_container'>
@@ -84,7 +75,7 @@ include_once 'db_connection.php';
 
             <?php
             
-            $result = mysql_query("select * from gallery_items");
+            $result = mysql_query("select * from gallery_groups LIMIT 1");
 
 
             $count = 0;
@@ -98,8 +89,10 @@ include_once 'db_connection.php';
         </div>
         <div id="group_list">
             <div id='group_list_header'>Group List</div>
+            
+            <div class='group_item act' id='new_gallery' >New</div>
+            <div class='group_item' id='all_gallery' >All</div>
 
-            <div class='group_item act' id='all_gallery' >All</div>
 
             <?php
             $result = mysql_query("select * from gallery_groups");
@@ -108,6 +101,7 @@ include_once 'db_connection.php';
                 echo "<div class='group_item' id='" . $row['id'] . "' >" . $row['group_name'] . "</div>";
             }
             ?>
+            
         </div>
         <div style='float: left;margin: 10px 0;text-align: center;width: 315px;'>
             <input type='button' onclick='delete_group()' value='Delete Group' />
