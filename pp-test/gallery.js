@@ -59,7 +59,7 @@ $(document).ready(function(){
                 gallery_items = gallery_items.split("-");
                 $("#group_items_panel").html('');
                 for(x=0;x<gallery_items.length;x++){
-                    $("#group_items_panel").append("<div id='"+x+ "' class='item_box'><img src='"+gallery_items[x]+"' /></div>");
+                    $("#group_items_panel").append("<div><div id='"+x+"' class='item_box'><img src='"+gallery_items[x]+"' /></div><input type='text' value='"+gallery_items[x]+"'></div>");
                 }
                 $('.tick_image').remove();
                 $('#group_name').val('');
