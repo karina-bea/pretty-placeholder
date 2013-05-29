@@ -5,7 +5,7 @@ include_once 'db_connection.php';
 ?>
 <html>
     <head>
-        <title>Creating Sortable Image Groups</title>
+        <title>Pretty Placeholder</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
 
@@ -53,22 +53,18 @@ include_once 'db_connection.php';
 
 
     </head>
-    <div id="Header">
-
-    <div id="images"></div>
     
     <div id='group_container'>
 
         <div id='group_panel'>
-            <div id='group_panel_header'>Create Group</div>
-            <table>
-                <tbody><tr>
-                        <td>Group Name</td><td><input type="text" id="group_name"></td><td><input type="button" id="group_creation" value="Create" onclick="group_elements()"></td>
-                    </tr>
-                    <tr>
-                        <td></td><td></td>
-                    </tr>
-                </tbody></table>
+           <h1>Pretty Placeholder</h2>
+            <input id="usernameInput" type="text"><input type="button" value="Search" onclick="getUserInformation()">
+            <hr/>
+
+            <p>Search Flickr to create lists of images for placeholder spec for your next web project.</p>
+            
+            <input type="text" id="group_name"><input type="button" id="group_creation" value="Create" onclick="group_elements()">
+
         </div>
         <div id="group_items_panel">
 
