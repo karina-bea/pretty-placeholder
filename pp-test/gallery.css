@@ -1,11 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
 body{
     font-size:12px !important;
     background-color:#e7e5e4;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  
 }
 
 h1{
+    font-family: inherit;
 
-  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
   font-weight: 400;
   font-size: 92px;
   padding: 80px 50px;
@@ -56,7 +65,7 @@ h1{
   margin-left:8px;
 }
 
-.group_list.item_box .tick_image{
+.frame .tick_image{
     display:none;
 }
 
@@ -82,6 +91,7 @@ h1{
     float: left;
     margin-top:10px;
     width: 315px;
+
 }
 .item_box{
     background: none repeat scroll 0 0 #EFEFEF;
@@ -91,6 +101,14 @@ h1{
     margin: 10px;
     outline: 1px solid #CFCFCF;
     width: 150px;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,.3),
+                        inset 0 0 0 1px rgba(255,255,255,.2),
+                        0 1px 2px rgba(0,0,0,.3),
+                        0 7px 7px -3px rgba(0,0,0,.5);
+    cursor: pointer;
+    float:left;
+    margin-right:30px;
+    position:relative;
 }
 
 .item_box img{
@@ -110,6 +128,8 @@ h1{
     border-bottom: 1px solid #CFCFCF;
     padding: 10px;
     width: 295px;
+
+
 
 }
 
@@ -133,6 +153,97 @@ input[type='button']{
 }
 
 .act{
-    background: red;
+    background: #9BC7C7;
     color: #fff;
 }
+
+.album_title {text-transform: lowercase;}
+
+.album {
+            position: absolute;
+            left: 0;
+            right: 0;
+            width: 250px;
+            margin: auto;
+            top: 160px;
+            text-align: center;
+        }
+        
+        .frame {
+            padding: 10px;
+            line-height: .7;
+            background-color: rgba(255,255,255,.5);
+           
+            margin: 0 auto;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,.3),
+                        inset 0 0 0 1px rgba(255,255,255,.2),
+                        0 1px 2px rgba(0,0,0,.3),
+                        0 7px 7px -3px rgba(0,0,0,.5);
+            cursor: pointer;
+            float:left;
+            margin-right:30px;
+        }
+        
+            .frame:before, .frame:after {
+                content:'';
+                padding: 10px;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-color: rgba(255,255,255,.5);
+                box-shadow: inset 0 1px 1px rgba(255,255,255,.3),
+                            inset 0 0 0 1px rgba(255,255,255,.2),
+                            0 1px 2px rgba(0,0,0,.3);
+                border-radius: .25em;
+                transform: rotate(-5deg);
+            }
+        
+            .frame:after {
+                transform: rotate(5deg);
+            }
+        
+            .frame i {
+                position: absolute;
+                z-index: 1;
+                display: block;
+            }
+        
+                .frame i:after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: .25em;
+                    background-image: linear-gradient(135deg, rgba(255,255,255,.1), rgba(255,255,255,.3) 50%, rgba(255,255,255,0) 50%);
+                    box-shadow: inset 0 0 0 1px rgba(0,0,0,.2), inset 0 2px 1px rgba(255,255,255,.3);
+                    -webkit-mask-image: -webkit-linear-gradient(#000, transparent)
+                }
+        
+            .frame i img {
+                border-radius: .25em;
+                transition: .2s;
+                transform-origin: top left;
+                background-color: #123;
+        
+            }
+        
+                .album:hover .frame i img {
+                    transform: scale(.5);
+                }
+        
+            .frame > img {
+                display: inline-block;
+                margin-right: -.15em;
+                margin-left: -.15em;
+            }
+        
+                .frame > img:nth-of-type(1) { border-radius: .25em 0 0 0; }
+                .frame > img:nth-of-type(2) { border-radius: 0 .25em 0 0; }
+                .frame > img:nth-of-type(3) { border-radius: 0 0 0 .25em; }
+                .frame > img:nth-of-type(4) { border-radius: 0 0 .25em 0; }
+
