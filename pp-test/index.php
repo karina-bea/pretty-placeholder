@@ -66,7 +66,7 @@ include_once 'db_connection.php';
 
         </div>
         <div id="group_items_panel">
-             <input type='button' onclick='delete_images()' value='Delete Images' />
+             <a onclick='delete_images()' value='Delete Images'>Delete Images</a>
 
 
             <?php
