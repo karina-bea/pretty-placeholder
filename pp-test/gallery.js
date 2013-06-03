@@ -90,7 +90,6 @@ $(document).ready(function(){
         });   
         } else {
             $("#group_items_panel").html("");
-            $("#group_items_panel").append("<input id=\"usernameInput\" type=\"text\"><input type=\"button\" value=\"Search\" onClick=\"getUserInformation()\">")
         }
         
     });
