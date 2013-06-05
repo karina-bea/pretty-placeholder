@@ -60,7 +60,7 @@ include_once 'db_connection.php';
 
         <div id='group_panel'>
            <h1>Pretty Placeholder</h2>
-            <input id="usernameInput" type="text"  placeholder="Search Flickr to create lists of images for placeholder spec for your next web project." ><input id="search-btn" type="button" value="Search" onclick="getUserInformation()">
+            <input id="usernameInput" type="text"  placeholder="Search Flickr to create lists of images for placeholder images." ><input id="search-btn" type="button" value="Search" onclick="getUserInformation()">
 
                    
 
