@@ -3,17 +3,19 @@
 include_once 'db_connection.php';
 
 ?>
-<html>
+<html lang="en">
     <head>
-        <title>Pretty Placeholder</title>
+        <title>Placehold It</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
 
         <script src="ui/jquery.ui.core.js" type="text/javascript"></script>
         <script src="ui/jquery.ui.widget.js" type="text/javascript"></script>
         <script src="ui/jquery.ui.mouse.js" type="text/javascript"></script>
-        <script src="ui/jquery.ui.sortable.js" type="text/javascript"></script>
+        <!--<script src="ui/jquery.ui.sortable.js" type="text/javascript"></script> -->
         <link rel="stylesheet" href="demos.css">
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <script src="bootstrap.js" type="text/javascript"></script>
 
         <script src="gallery.js" type="text/javascript"></script>
         <link rel="stylesheet" href="gallery.css">
