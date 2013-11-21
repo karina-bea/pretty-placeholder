@@ -13,7 +13,6 @@ include_once 'db_connection.php';
         <script src="ui/jquery.ui.widget.js" type="text/javascript"></script>
         <script src="ui/jquery.ui.mouse.js" type="text/javascript"></script>
         <script src="ui/jquery.ui.sortable.js" type="text/javascript"></script>
-        <link rel="stylesheet" href="demos.css">
 
         <script src="gallery.js" type="text/javascript"></script>
         <link rel="stylesheet" href="gallery.css">
@@ -37,12 +36,13 @@ include_once 'db_connection.php';
              tagmode: "any",
              format: "json"
            }).done(function( data ) {
+            $("#group_items_panel").html('');
+
              $.each( data.items, function( i, item ) {
-                console.log(data);
 
                 $("#group_items_panel").append("<div id='"+i+ "' class='item_box'><img src='"+item.media.m+"' /></div>");
 
-               if ( i === 9 ) {
+               if ( i === 39 ) {
                  return false;
                 }
              });
@@ -57,16 +57,23 @@ include_once 'db_connection.php';
     <div id='group_container'>
 
         <div id='group_panel'>
+            <header>
            <h1>Pretty Placeholder</h2>
-            <input id="usernameInput" type="text"><input type="button" value="Search" onclick="getUserInformation()">
-            <hr/>
+            <input class="search-btn" type="button" value="Search" onclick="getUserInformation()">
+            <input id="usernameInput" type="text" placeholder="Search Flickr to create lists of images for placeholder images.">
+        </header>
 
-            <p>Search Flickr to create lists of images for placeholder spec for your next web project.</p>
             
-            <input type="text" id="group_name"><input type="button" id="group_creation" value="Create" onclick="group_elements()">
 
         </div>
         <div id="group_items_panel">
+
+            <div class="item_box"><span>F</span></div>
+            <div class="item_box"><span>L</span></div>
+            <div class="item_box"><span>I</span></div>
+            <div class="item_box"><span>C</span></div>
+            <div class="item_box"><span>K</span></div>
+            <div class="item_box"><span>R</span></div>
 
 
             <?php
@@ -76,34 +83,37 @@ include_once 'db_connection.php';
 
             $count = 0;
             while ($row = mysql_fetch_array($result)) {
-                $count++;
+                
                 echo "<div id='" . $row['img_name'] . "' class='item_box'><img src='" . $row['src'] . "' /></div>";
+                $count++;
             }
             ?>
 
 
         </div>
         <div id="group_list">
-            <div id='group_list_header'>Group List</div>
+
+        <input type="text" id="group_name"  class="add-input"placeholder="Add Your List"><input type="button" class="add-btn"id="group_creation" value="+" onclick="group_elements()">
+          
             
-            <div class='group_item act' id='new_gallery' >New</div>
-            <div class='group_item' id='all_gallery' >All</div>
+<!--             <div class='group_item act' id='new_gallery' >New</div> -->            
+<!-- <div class='group_item' id='all_gallery' >All</div> -->
 
 
             <?php
             $result = mysql_query("select * from gallery_groups");
             while ($row = mysql_fetch_array($result)) {
                 $count++;
-                echo "<div class='group_item' id='" . $row['id'] . "' >" . $row['group_name'] . "</div>";
+                echo "<div class='group_item' id='" . $row['id'] . "' >" . $row['group_name'] . " <input alt='close'type='button' class='closebtn' onclick='delete_group()' value='X' />
+</div>";
             }
             ?>
             
         </div>
         <div style='float: left;margin: 10px 0;text-align: center;width: 315px;'>
-            <input type='button' onclick='delete_group()' value='Delete Group' />
+
+
         </div>
-        <div style='float: left;margin: 10px 0;text-align: center;width: 315px;'>
-		<input type='button' onclick='delete_images()' value='Delete Images' />
 	</div>
         <div style='clear:both'></div>
 

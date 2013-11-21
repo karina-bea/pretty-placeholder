@@ -76,7 +76,7 @@ $(document).ready(function(){
                 $("#group_items_panel").html('');
 
                 $.each(res.data, function(i, v){
-                    $("#group_items_panel").append("<div data-id='"+ v.ids +"' class='group_list item_box'>"+v.tags+"</div>");
+                    $("#group_items_panel").append("<div data-id='"+ v.ids +"' class='group_list item_box'>"+v.tags+" <input type='button' class='closebtn' onclick='delete_group()' value='X' /></div>");
                 });
                 
                 $('.tick_image').remove();
