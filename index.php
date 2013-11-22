@@ -52,6 +52,7 @@ include_once 'db_connection.php';
         </script>
 
 
+
     </head>
     
     <div id='group_container'>
@@ -59,8 +60,17 @@ include_once 'db_connection.php';
         <div id='group_panel'>
             <header>
            <h1>Pretty Placeholder</h2>
-            <input class="search-btn" type="button" value="Search" onclick="getUserInformation()">
-            <input id="usernameInput" type="text" placeholder="Search Flickr to create lists of images for placeholder images.">
+            <form id="searchform">
+                <input class="search-btn"  tabindex="2" type="button" value="Search" onclick="getUserInformation()">
+                <input id="usernameInput" autofocus type="text" tabindex="1" placeholder="Search Flickr to create lists of images for placeholder images.">
+            </form>
+        <script>
+        $('#searchform').submit(function(event){
+            event.preventDefault();
+            console.log("Search form");
+            getUserInformation();
+        })
+        </script>
         </header>
 
             
@@ -93,8 +103,9 @@ include_once 'db_connection.php';
         </div>
         <div id="group_list">
 
-        <input type="text" id="group_name"  class="add-input"placeholder="Add Your List"><input type="button" class="add-btn"id="group_creation" value="+" onclick="group_elements()">
-          
+            <form>
+        <input type="text" id="group_name" tabindex="3" class="add-input"placeholder="Add Your List"><input type="button" tabindex="4" class="add-btn"id="group_creation" value="+" onclick="group_elements()">
+          </form>
             
 <!--             <div class='group_item act' id='new_gallery' >New</div> -->            
 <!-- <div class='group_item' id='all_gallery' >All</div> -->

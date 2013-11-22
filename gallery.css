@@ -27,7 +27,7 @@ border: 1px solid #48b4b5;
 -webkit-border-radius: 3px;
 color: white;
 text-shadow: 1px 1px 2px #48b4b5;
-height: 35px;
+height: 33px;
 padding: 5px;
 width: 100px;
 font-size: 1.2em;
@@ -37,10 +37,11 @@ margin-top:11px;
 cursor: pointer;
 }
 
+#searchform {display: inline-block; float: right;}
 
 .search-btn:focus, .add-btn:focus {outline: none; border:none; background: #9BC7C7;}
 
-.add-btn{border: none; outline: none; width:50px; height: 30px; float:none;}
+.add-btn{border: none; outline: none; width:50px; height: 29px; float:none;}
 
 header {margin-top:20px; margin-bottom:20px; float:left;}
 

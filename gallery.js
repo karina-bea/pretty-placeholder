@@ -1,30 +1,30 @@
 $(function() {
-    $("#group_items_panel").sortable({
-        opacity: 0.6,
-        cursor: 'move',
-        update: function() {
-            if($('.act').attr('id') != 'all_gallery'){
+    // $("#group_items_panel").sortable({
+    //     opacity: 0.6,
+    //     cursor: 'move',
+    //     update: function() {
+    //         if($('.act').attr('id') != 'all_gallery'){
                     
-            }
-            var selected_ids = '';
-            $(".item_box").each(function() {
-                selected_ids += $(this).attr("id")+"-";
-            });
+    //         }
+    //         var selected_ids = '';
+    //         $(".item_box").each(function() {
+    //             selected_ids += $(this).attr("id")+"-";
+    //         });
                 
-            var data = {
-                action: 'update_gallery',
-                image_list: selected_ids,
-                gallery_id : $('.act').attr('id')
-            };
-            $.ajax({
-                type: "POST",
-                url: "ajax.php",
-                data:data,
-                success: function(res) {
-                }
-            });
-        }
-    });
+    //         var data = {
+    //             action: 'update_gallery',
+    //             image_list: selected_ids,
+    //             gallery_id : $('.act').attr('id')
+    //         };
+    //         $.ajax({
+    //             type: "POST",
+    //             url: "ajax.php",
+    //             data:data,
+    //             success: function(res) {
+    //             }
+    //         });
+    //     }
+    // });
 
 });
 
@@ -125,7 +125,7 @@ var group_elements = function(){
                 if(res == 'invalid'){
                     alert("Group Already Exists");
                 }else{
-                    $('#group_list').append("<div class='group_item' id='"+res+"' >"+ $('#group_name').val() +"</div>");
+                    $('#group_list').append("<div class='group_item' id='"+res+"' >"+ $('#group_name').val() +" <input alt='close'type='button' class='closebtn' onclick='delete_group()' value='X' /></div>");
                     $('.tick_image').remove();
                     $('#group_name').val('');
                 }
